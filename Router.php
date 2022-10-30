@@ -17,8 +17,9 @@ class Router
 
     public function comprobarRutas() {
        // $currentUrl = $_SERVER['REQUEST_URI'] === '' ? '/' :  $_SERVER['REQUEST_URI'] ;
-       // $currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
-        $currentUrl = $_SERVER['REDIRECT_URL'] ?? '/';
+    //$currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
+       // $currentUrl = $_SERVER['REDIRECT_URL'] ?? '/';
+        $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
