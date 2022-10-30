@@ -26,10 +26,14 @@ class Router
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
-            $fn = $this->getRoutes[$currentUrl] ?? null;
-        } else {
-            $fn = $this->postRoutes[$currentUrl] ?? null;
-        }
+
+            $fn = $this->getRoutes[$currentUrl[0]] ?? null;
+            
+            } else {
+            
+            $fn = $this->postRoutes[$currentUrl[0]] ?? null; // <------ Aquí estaba el error
+            
+            }
 
         if ($fn) {
             // Call user fn va a llamar una función cuando no sabemos cual sera
